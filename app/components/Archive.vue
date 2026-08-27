@@ -10,6 +10,7 @@
           <router-link class="mls" to="/split-pdf/">PDF分割</router-link>
           <router-link class="mls" to="/merge-pdf/">PDF結合</router-link>
           <router-link class="mls" to="/jfif-to-jpg/">JFIF JPG・PNG変換</router-link>
+          <router-link class="mls" to="/webp-to-jpg/">WEBPをPNG・JPG変換</router-link>
           <router-link class="mls" to="/image-to-webp/">画像をWEBPに変換</router-link>
           <router-link class="mls" to="/png-transparent/">PNG透過</router-link>
         </div>

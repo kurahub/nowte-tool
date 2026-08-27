@@ -7,7 +7,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="gray tac">
+              <p class=" tac">
                 PNG画像の白背景を透明にします。
                 <br />
                 ファイルを入れたら一発透過・自動ダウンロード。

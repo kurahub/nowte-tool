@@ -7,7 +7,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="gray tac">
+              <p class=" tac">
                 WEBP画像をJPGまたはPNGに変換します。
                 <br />
                 ファイルを入れたら一発変換・自動ダウンロード。
