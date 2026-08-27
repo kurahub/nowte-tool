@@ -131,7 +131,7 @@ import { saveAs } from 'file-saver'
 
 
 useHead({
-  title: 'PDFを1ページずつに分割するだけのツール｜無料で使えてアップロード＆インストール不要',
+  title: '一発でPDFを1ページずつに分割｜無料・アップロード＆インストール不要',
   meta: [
     {
       name: 'description',

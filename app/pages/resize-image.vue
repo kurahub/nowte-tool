@@ -167,7 +167,7 @@ import { ref } from 'vue'
 import Compressor from 'compressorjs'
 
 useHead({
-  title: 'オンライン画像リサイズ JPG・PNG・GIF'
+  title: '一発でオンライン画像リサイズ JPG・PNG・GIF'
 })
 
 const wh = ref('1280')

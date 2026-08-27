@@ -215,7 +215,7 @@ import { computed, ref } from 'vue'
 import html2canvas from 'html2canvas'
 
 useHead({
-  title: '文字・文章・テキスト画像変換ツール'
+  title: '一発で文字・文章・テキスト画像変換'
 })
 
 const textInput = ref('ここに画像にしたいテキストを入力')

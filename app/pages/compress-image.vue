@@ -97,7 +97,7 @@ import { ref } from 'vue'
 import Compressor from 'compressorjs'
 
 useHead({
-  title: 'オンライン画像圧縮 JPG・PNG'
+  title: '一発でオンライン画像圧縮 JPG・PNG'
 })
 
 const compressNumber = ref(80)

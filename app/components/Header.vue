@@ -4,7 +4,13 @@
       <div class="container">
         <div class="header-primary">
           <p class="logo">
-            <a href="https://www.nowte.net/" target="_blank"><img class="responsive" src="https://www.nowte.net/wp/wp-content/themes/nowte/images/common/logo_diginote.png" alt="デジノート" /></a>
+            <a href="/tool/">
+  <img
+    class="responsive"
+    src="/assets/images/common/logo.png"
+    alt="一発ツールズ"
+  />
+</a>
           </p>
         </div>
       </div>
