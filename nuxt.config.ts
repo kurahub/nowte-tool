@@ -19,11 +19,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      crawlLinks: false,
-      routes: [
-        '/',
-        '/split-pdf/'
-      ]
+      crawlLinks: true
     }
   }
 })
