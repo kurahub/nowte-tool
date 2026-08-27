@@ -5,7 +5,7 @@
         <div class="container">
           <h1 class="h1">黄金比 早見表</h1>
           <p class="fwb fsl mtxxs">(1:1.618)</p>
-          <p class="gray">
+          <p class="">
             最も美しい比と言われる「黄金比」。
             <br />計算しなくても見れるように早見表を作成しました。
           </p>

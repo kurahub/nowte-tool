@@ -7,7 +7,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="gray tac">
+              <p class=" tac">
                 複数のPDFを1つに結合します。アップロード不要・ブラウザ内で処理します。
               </p>
             </div>

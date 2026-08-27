@@ -7,7 +7,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="gray tac">
+              <p class="tac">
                 拡張子「.jfif」の画像をJPGまたはPNGに変換します。
                 <br />
                 アップロード不要・ブラウザ内だけで処理します。

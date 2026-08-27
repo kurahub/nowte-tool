@@ -7,7 +7,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="gray tac">
+              <p class=" tac">
                 アップロード不要。JPG・PNG・GIFの画像を複数一括リサイズ。
               </p>
             </div>

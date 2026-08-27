@@ -10,7 +10,7 @@
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-              <p class="gray">
+              <p class="">
                 <b>使い方</b>
                 <br />1. テキストボックスにテキストを入力
                 <br />2. 「画像をダウンロード」ボタンをタップ。
