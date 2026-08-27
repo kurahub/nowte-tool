@@ -1,13 +1,13 @@
 <template>
   <div>
     <main id="main" class="webp-converter">
-      <section class="mts">
+      <section class="page-header">
         <div class="container">
           <h1 class="h1">WEBPをJPG・PNGに変換</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class=" tac">
+              <p class="page-description">
                 WEBP画像をJPGまたはPNGに変換します。
                 <br />
                 ファイルを入れたら一発変換・自動ダウンロード。
@@ -17,7 +17,7 @@
 
           <div
             id="js-dropzone"
-            class="drop-zone"
+            class="drop-zone mt20"
             :class="{ 'drag-active': isDragging }"
             @dragenter.prevent="dropzoneInEvent"
             @dragover.prevent="dragoverEvent"
@@ -26,13 +26,9 @@
           >
             <div class="overlay-area"></div>
 
-            <p class="drop-zone-text">
-              WEBPファイルを選択 or ここにドラッグ&ドロップ
-              <br />
-              選択すると自動で変換・ダウンロードします。
-            </p>
+            <div class="drop-zone-text"><b>ファイルをここにドラッグ&amp;ドロップ</b></div>
 
-            <label for="file" class="select-file">
+            <label for="file" class="select-file mt10">
               ファイルを選択
               <input
                 id="file"
@@ -44,7 +40,7 @@
             </label>
           </div>
 
-          <div class="mts">
+          <div class="tool-setting-row mts">
             <p class="gray mtxxs"><b>出力形式</b></p>
 
             <div class="radio-button-group">
@@ -99,7 +95,7 @@
             </p>
           </div>
 
-          <div class="mts box bg-gray">
+          <div class="tool-info-section bg-gray ptm pbm mtm">
             <p class="mt0"><b>特徴</b></p>
             <ul class="list mtxxs">
               <li>WEBPをJPGまたはPNGに変換できます。</li>
@@ -110,7 +106,7 @@
             </ul>
           </div>
 
-          <div class="mts">
+          <div class="tool-info-section bg-gray pbm">
             <h2 class="h2">WEBPをJPG・PNGに変換する方法</h2>
             <ol class="list mtxxs">
               <li>出力形式で「JPG」または「PNG」を選びます。</li>

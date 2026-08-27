@@ -1,13 +1,13 @@
 <template>
   <div>
-    <main id="main" class="compress-image">
-      <section class="mts">
+    <main id="main" class="image-compress">
+      <section class="page-header">
         <div class="container">
           <h1 class="h1">画像圧縮ツール</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class=" tac">
+              <p class="page-description">
                 アップロード不要。JPG・PNGファイルのファイルサイズを簡単圧縮。
               </p>
             </div>
@@ -24,32 +24,19 @@
 
           <div
             id="js-dropzone"
-            class="drop-zone"
-            @dragenter="dropzoneInEvent"
+            class="drop-zone mt20"
+            :class="{ 'drag-active': isDragging }"
+            @dragenter.prevent="dropzoneInEvent"
+            @dragleave.prevent="dragleaveEvent"
+            @dragover.prevent="dragoverEvent"
+            @drop.prevent="fileDropEvent"
           >
-            <div
-              id="js-overlay-area"
-              class="overlay-area"
-              @dragleave="dragleaveEvent"
-              @dragover="dragoverEvent"
-              @drop="fileDropEvent"
-            ></div>
-
-            <p
-              id="js-overlay-text"
-              class="no-active"
-            ></p>
-
-            <p class="drop-zone-text">
-              ファイルを選択 or ここにドラッグ&ドロップ
-              <br />
-              圧縮されたファイルを自動でダウンロードします。
-            </p>
+            <div class="drop-zone-text"><b>ファイルをここにドラッグ&amp;ドロップ</b></div>
 
             <label
               id="js-select-file"
               for="file"
-              class="select-file"
+              class="select-file mt10"
             >
               ファイルを選択
 
@@ -62,10 +49,6 @@
               />
             </label>
 
-            <div
-              id="js-selected-file"
-              class="selected-file no-active"
-            ></div>
           </div>
 
           <div class="option-font-size-box mtxs tar">
@@ -84,6 +67,24 @@
               {{ compressNumber + ' %' }}
             </span>
           </div>
+
+          <div class="tool-info-section bg-gray ptm pbm mtm">
+            <h2 class="h2">特徴</h2>
+            <ul class="list mtxxs">
+              <li>JPG・PNG画像をまとめて圧縮できます。</li>
+              <li>画像はサーバーへアップロードしません。</li>
+              <li>圧縮後の画像を自動でダウンロードします。</li>
+            </ul>
+          </div>
+
+          <div class="tool-info-section bg-gray pbm">
+            <h2 class="h2">画像を圧縮する方法</h2>
+            <ul class="list mtxxs">
+              <li>圧縮率を選びます。</li>
+              <li>画像を選択、またはドラッグ＆ドロップします。</li>
+              <li>圧縮された画像が自動でダウンロードされます。</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -101,10 +102,7 @@ useHead({
 })
 
 const compressNumber = ref(80)
-
-const overlayTextID = 'js-overlay-text'
-const overlayAreaID = 'js-overlay-area'
-const selectedFileID = 'js-selected-file'
+const isDragging = ref(false)
 
 function getElement(id) {
   if (!import.meta.client) return null
@@ -153,15 +151,12 @@ function fileDownload(files) {
 }
 
 function dropzoneInEvent() {
-  getElement(overlayAreaID)?.classList.add('drag-overlay')
-  getElement(overlayTextID)?.classList.add('overlay-text')
-  getElement(overlayTextID)?.classList.remove('no-active')
+  isDragging.value = true
 }
 
-function dragleaveEvent() {
-  getElement(overlayAreaID)?.classList.remove('drag-overlay')
-  getElement(overlayTextID)?.classList.remove('overlay-text')
-  getElement(overlayTextID)?.classList.add('no-active')
+function dragleaveEvent(event) {
+  if (event.currentTarget?.contains(event.relatedTarget)) return
+  isDragging.value = false
 }
 
 function dragoverEvent(event) {
@@ -171,17 +166,11 @@ function dragoverEvent(event) {
 function fileDropEvent(event) {
   event.preventDefault()
 
-  getElement(selectedFileID)?.classList.remove('no-active')
-  getElement(overlayAreaID)?.classList.remove('drag-overlay')
-  getElement(overlayTextID)?.classList.remove('overlay-text')
-  getElement(overlayTextID)?.classList.add('no-active')
-
+  isDragging.value = false
   fileDownload(event.dataTransfer?.files)
 }
 
 function fileChangeEvent(event) {
-  getElement(selectedFileID)?.classList.remove('no-active')
-
   fileDownload(event.target?.files)
 
   if (event.target) {

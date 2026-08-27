@@ -1,13 +1,13 @@
 <template>
   <div>
     <main id="main" class="jfif-converter">
-      <section class="mts">
+      <section class="page-header">
         <div class="container">
           <h1 class="h1">JFIFをJPG・PNGに変換</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class="tac">
+              <p class="page-description">
                 拡張子「.jfif」の画像をJPGまたはPNGに変換します。
                 <br />
                 アップロード不要・ブラウザ内だけで処理します。
@@ -17,7 +17,7 @@
 
           <div
             id="js-dropzone"
-            class="drop-zone"
+            class="drop-zone mt20"
             :class="{ 'drag-active': isDragging }"
             @dragenter.prevent="dropzoneInEvent"
             @dragover.prevent="dragoverEvent"
@@ -34,16 +34,12 @@
               class="no-active"
             ></p>
 
-            <p class="drop-zone-text">
-              JFIFファイルを選択 or ここにドラッグ&ドロップ
-              <br />
-              選択すると自動で変換・ダウンロードします。
-            </p>
+            <div class="drop-zone-text"><b>ファイルをここにドラッグ&amp;ドロップ</b></div>
 
             <label
               id="js-select-file"
               for="file"
-              class="select-file"
+              class="select-file mt10"
             >
               ファイルを選択
 
@@ -57,7 +53,7 @@
             </label>
           </div>
 
-          <div class="mts">
+          <div class="tool-setting-row mts">
             <p class="gray mtxxs">
               <b>出力形式</b>
             </p>
@@ -124,7 +120,7 @@
             </p>
           </div>
 
-          <div class="mts box bg-gray">
+          <div class="tool-info-section bg-gray ptm pbm mtm">
             <p class="mt0">
               <b>特徴</b>
             </p>
@@ -137,7 +133,7 @@
             </ul>
           </div>
 
-          <div class="mts">
+          <div class="tool-info-section bg-gray pbm">
             <h2 class="h2">JFIFをJPGに変換する方法</h2>
 
             <ol class="list mtxxs">
@@ -147,7 +143,7 @@
             </ol>
           </div>
 
-          <div class="mts">
+          <div class="tool-info-section bg-gray pbm">
             <h2 class="h2">JFIFとJPGの違い</h2>
 
             <p class="gray">

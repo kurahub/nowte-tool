@@ -24,6 +24,16 @@
                 <strong>PDF分割</strong>
                 <span>PDFから必要なページを分割</span>
               </NuxtLink>
+
+              <NuxtLink to="/pdf-to-image/" class="tool-card">
+                <strong>PDF → PNG・JPG</strong>
+                <span>PDFの全ページを画像へ一発変換</span>
+              </NuxtLink>
+
+              <NuxtLink to="/image-to-pdf/" class="tool-card">
+                <strong>画像 → PDF</strong>
+                <span>複数画像を一つのPDFへ一発変換</span>
+              </NuxtLink>
             </div>
           </section>
 
@@ -60,6 +70,11 @@
                 <strong>PNG背景透過</strong>
                 <span>PNG画像の白背景を透明に変換</span>
               </NuxtLink>
+
+              <NuxtLink to="/merge-image/" class="tool-card">
+                <strong>画像結合</strong>
+                <span>複数画像を縦・横に一枚へ結合</span>
+              </NuxtLink>
             </div>
           </section>
 
@@ -75,6 +90,21 @@
               <NuxtLink to="/golden-ratio/" class="tool-card">
                 <strong>黄金比</strong>
                 <span>黄金比のサイズをすぐに計算</span>
+              </NuxtLink>
+
+              <NuxtLink to="/japanese-check/" class="tool-card">
+                <strong>日本語チェック</strong>
+                <span>文章に日本語が含まれるかすぐ確認</span>
+              </NuxtLink>
+
+              <NuxtLink to="/replace-text/" class="tool-card">
+                <strong>文字列置換</strong>
+                <span>文章内の文字列をまとめて置換</span>
+              </NuxtLink>
+
+              <NuxtLink to="/anchor-link-generator/" class="tool-card">
+                <strong>ページ内リンク生成</strong>
+                <span>HTMLのIDからaタグを一括生成</span>
               </NuxtLink>
             </div>
           </section>

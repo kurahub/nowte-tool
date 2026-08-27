@@ -1,19 +1,14 @@
 <template>
   <div>
-    <main id="main">
-      <section class="mts">
+    <main id="main" class="text-to-image">
+      <section class="page-header">
         <div class="container">
-          <h1 class="h1">
-            文字・文章・テキスト
-            <br />画像変換ツール
-          </h1>
+          <h1 class="h1">テキストを画像に変換</h1>
 
           <div class="row justify-content-center">
-            <div class="col-12 col-md-6">
-              <p class="">
-                <b>使い方</b>
-                <br />1. テキストボックスにテキストを入力
-                <br />2. 「画像をダウンロード」ボタンをタップ。
+            <div class="col-12 col-md-12">
+              <p class="page-description">
+                文字・文章を画像に変換します。<br />色と文字サイズを選んで画像をダウンロードできます。
               </p>
             </div>
           </div>
@@ -192,10 +187,17 @@
             </div>
           </div>
 
-          <div class="mts box bg-gray">
-            <p class="mt0">
-              <b>更新履歴</b>
-            </p>
+          <div class="tool-info-section bg-gray ptm pbm mtm">
+            <h2 class="h2">テキストを画像に変換する方法</h2>
+            <ul class="list mtxxs">
+              <li>テキストボックスへ文字を入力します。</li>
+              <li>背景色・文字色・文字サイズを選びます。</li>
+              <li>「画像をダウンロード」を押します。</li>
+            </ul>
+          </div>
+
+          <div class="tool-info-section bg-gray pbm">
+            <h2 class="h2">更新履歴</h2>
 
             <ul class="list mtxxs">
               <li>2020/05/20 Ver 1.1 背景色、透過、文字色、フォントサイズ変更機能追加</li>

@@ -1,13 +1,13 @@
 <template>
   <div>
     <main id="main" class="to-webp">
-      <section class="mts">
+      <section class="page-header">
         <div class="container">
           <h1 class="h1">PNG・JPGをWEBPに変換</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class=" tac">
+              <p class="page-description">
                 PNG・JPG画像をWEBPに変換します。
                 <br />
                 ファイルを入れたら一発変換・自動ダウンロード。
@@ -16,7 +16,7 @@
           </div>
 
           <div
-            class="drop-zone"
+            class="drop-zone mt20"
             :class="{ 'drag-active': isDragging }"
             @dragenter.prevent="isDragging = true"
             @dragover.prevent="dragoverEvent"
@@ -25,13 +25,9 @@
           >
             <div class="overlay-area"></div>
 
-            <p class="drop-zone-text">
-              PNG・JPGファイルを選択 or ここにドラッグ&ドロップ
-              <br />
-              選択すると自動でWEBPに変換・ダウンロードします。
-            </p>
+            <div class="drop-zone-text"><b>ファイルをここにドラッグ&amp;ドロップ</b></div>
 
-            <label for="webp-file" class="select-file">
+            <label for="webp-file" class="select-file mt10">
               ファイルを選択
               <input
                 id="webp-file"
@@ -60,7 +56,7 @@
             {{ errorMessage }}
           </p>
 
-          <div class="mts box bg-gray">
+          <div class="tool-info-section bg-gray ptm pbm mtm">
             <p class="mt0"><b>特徴</b></p>
             <ul class="list mtxxs">
               <li>PNG・JPG・JPEGをWEBPに変換できます。</li>
@@ -71,7 +67,7 @@
             </ul>
           </div>
 
-          <div class="mts">
+          <div class="tool-info-section bg-gray pbm">
             <h2 class="h2">PNG・JPGをWEBPに変換する方法</h2>
             <ol class="list mtxxs">
               <li>必要ならWEBP画質を調整します。</li>

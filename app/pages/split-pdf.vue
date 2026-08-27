@@ -1,34 +1,57 @@
 <template>
   <div>
-    <main id="main" class="compress-image">
-      <section class="mts">
+    <main id="main" class="split-pdf">
+      <section class="page-header">
         <div class="container">
-          <h1 class="h1">PDFを1ページずつに<br />分割するだけツール</h1>
-          <div class="row justify-content-center">
-            <div class="col-12 col-md-12">
-              <p class="tac mtxxs">
-                複数ページのPDFを1つずつのファイルに分けます。<br />
-                アップロード＆インストール不要だから高速。無料で簡単誰でも使えます。
-              </p>
+          <h1 class="h1">PDFを1ページずつに分割</h1>
+          <p class="page-description">
+            複数ページのPDFを1ページずつのファイルに分けます。<br />
+            アップロード不要。ブラウザ内ですぐに分割できます。
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div
+            id="js-dropzone"
+            class="drop-zone mt20"
+            :class="{ 'drag-active': isDragging }"
+            @dragenter="dropzoneInEvent"
+            @dragleave="dragleaveEvent"
+            @dragover="dragoverEvent"
+            @drop="fileDropEvent"
+          >
+            <div class="drop-zone-text">
+              <b>ファイルをここにドラッグ&amp;ドロップ</b>
             </div>
+            <label id="js-select-file" for="file" class="select-file mt10">
+              ファイルを選択
+              <input
+                id="file"
+                type="file"
+                accept=".pdf,application/pdf"
+                @change="fileChangeEvent"
+              />
+            </label>
           </div>
         </div>
       </section>
 
-      <section v-if="pdfs.length" class="sec-md ptxxs">
+      <section v-if="pdfs.length" class="mt20">
         <div class="container">
-          <div class="tac df justify-content-center">
+          <div class="tac">
             <button
               v-if="zipFlg"
-              class="tac mts db bg-gray box over"
-              style="cursor: pointer;"
+              type="button"
+              class="download-all-button"
               @click="downloadZIP"
             >
               <i class="fa fa-download"></i> まとめてダウンロード
             </button>
           </div>
 
-          <div class="item-list row mts">
+          <div class="item-list row mt20">
             <div v-for="(pdf, index) in pdfs" :key="pdf.no" class="col-md-4 mbxs">
               <a
                 class="db bg-gray box over"
@@ -38,7 +61,7 @@
               >
                 <p class="mt0 gray tac">ページ {{ pdf.no }}</p>
                 <figure v-if="pdfImageSrc[index]" class="mtxxs">
-                  <img :src="pdfImageSrc[index]" width="100%" alt="" />
+                  <img :src="pdfImageSrc[index]" width="100%" :alt="`PDF ${pdf.no}ページ目のプレビュー`" />
                 </figure>
                 <div v-else class="tac mtxs gray">プレビューなし</div>
                 <p :id="'download' + pdf.no" class="tac mts">
@@ -50,70 +73,39 @@
         </div>
       </section>
 
-      <section class="sec-md ptxxs">
-        <div class="container">
-          <div id="js-dropzone" class="drop-zone mts" @dragenter="dropzoneInEvent">
-            <div
-              id="js-overlay-area"
-              class="overlay-area"
-              @dragleave="dragleaveEvent"
-              @dragover="dragoverEvent"
-              @drop="fileDropEvent"
-            ></div>
-            <p id="js-overlay-text" class="no-active"></p>
-            <p class="drop-zone-text">PDF選択 or ここにドラッグ&ドロップ</p>
-            <label id="js-select-file" for="file" class="select-file">
-              ファイルを選択
-              <input
-                id="file"
-                type="file"
-                accept=".pdf,application/pdf"
-                @change="fileChangeEvent"
-              />
-            </label>
-            <div id="js-selected-file" class="selected-file no-active"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="sec-md">
-        <div class="container">
-          <h2 class="h2">特徴</h2>
-          <div class="item-list row mts">
-            <div class="col-md-4 mbxs tac">
-              <p><i class="fa fa-running fsxxl"></i></p>
-              <h3 class="h3 mtxs">高速処理</h3>
-              <p class="mtxxs">サーバーレスでアップロード不要だからPDFをすぐに分割。</p>
+      <section class="bg-gray ptm pbm mtm">
+        <div class="container-fluid">
+          <section>
+            <div class="container">
+              <h2 class="h2">特徴</h2>
+              <ul class="list mtxxs">
+                <li>PDFを1ページずつのファイルに分割できます。</li>
+                <li>必要なページだけ、またはZIPでまとめてダウンロードできます。</li>
+                <li>PDFはサーバーへアップロードしません。</li>
+                <li>ブラウザ内だけで分割処理を行います。</li>
+              </ul>
             </div>
-            <div class="col-md-4 mbxs tac">
-              <p><i class="fa fa-arrow-alt-circle-down fsxxl"></i></p>
-              <h3 class="h3 mtxs">カンタン操作</h3>
-              <p class="mtxxs">PDFをドラッグして必要なPDFをダウンロードするだけ。</p>
-            </div>
-            <div class="col-md-4 mbxs tac">
-              <p><i class="fa fa-check fsxxl"></i></p>
-              <h3 class="h3 mtxs">無料</h3>
-              <p class="mtxxs">どなたでも無料で利用可。</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <section class="sec-md pt0">
-        <div class="container">
-          <h2 class="h2">使い方</h2>
-          <p>1.　ページを分割したいPDFを「ファイルを選択」欄にドラッグ＆ドップ、またはボタンをクリックしてPDFを選択。</p>
-          <p>2.　PDF内のページが画面に表示されるので必要なページをクリックでダウンロードします。</p>
-          <p>3.　まとめてダウンロードする場合は「まとめてダウンロード」をクリック</p>
-        </div>
-      </section>
+          <section class="mts">
+            <div class="container">
+              <h2 class="h2">PDFを分割する方法</h2>
+              <ul class="list mtxxs">
+                <li>PDFを選択、またはドラッグ＆ドロップします。</li>
+                <li>分割されたページのプレビューを確認します。</li>
+                <li>必要なページ、または「まとめてダウンロード」を選びます。</li>
+              </ul>
+            </div>
+          </section>
 
-      <section class="sec-md pt0">
-        <div class="container">
-          <h2 class="h2">PDFとは</h2>
-          <p>
-            Portable Document Format (PDF)（ポータブル・ドキュメント・フォーマット）の略称で、デジタルデバイス上でアプリケーションやOS、ハードウェアに依存せず文章や図版を表示するために開発され、ISO 32000[2]で国際標準化された電子文書ファイル形式のこと。 手軽に作成した文書を異なる環境のコンピュータで元のレイアウト通りに表示・印刷できる。
-          </p>
+          <section class="mts">
+            <div class="container">
+              <h2 class="h2">PDFとは</h2>
+              <p class="mtxxs">
+                PDFは、端末やOSが異なっても文書のレイアウトを保って表示・印刷できる電子文書形式です。このツールでは、複数ページのPDFをページごとのPDFファイルへ分割できます。
+              </p>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -144,6 +136,7 @@ useHead({
 const pdfs = ref([])
 const pdfImageSrc = ref([])
 const zipFlg = ref(0)
+const isDragging = ref(false)
 
 function revokePdfUrls() {
   if (!import.meta.client) return
@@ -299,15 +292,12 @@ async function renderPage(page) {
 }
 
 function dropzoneInEvent() {
-  document.getElementById('js-overlay-area')?.classList.add('drag-overlay')
-  document.getElementById('js-overlay-text')?.classList.add('overlay-text')
-  document.getElementById('js-overlay-text')?.classList.remove('no-active')
+  isDragging.value = true
 }
 
-function dragleaveEvent() {
-  document.getElementById('js-overlay-area')?.classList.remove('drag-overlay')
-  document.getElementById('js-overlay-text')?.classList.remove('overlay-text')
-  document.getElementById('js-overlay-text')?.classList.add('no-active')
+function dragleaveEvent(event) {
+  if (event.currentTarget?.contains(event.relatedTarget)) return
+  isDragging.value = false
 }
 
 function dragoverEvent(event) {
@@ -316,18 +306,13 @@ function dragoverEvent(event) {
 
 function fileDropEvent(event) {
   event.preventDefault()
-
-  document.getElementById('js-selected-file')?.classList.remove('no-active')
-  document.getElementById('js-overlay-area')?.classList.remove('drag-overlay')
-  document.getElementById('js-overlay-text')?.classList.remove('overlay-text')
-  document.getElementById('js-overlay-text')?.classList.add('no-active')
-
+  isDragging.value = false
   createPDF(event.dataTransfer.files)
 }
 
 function fileChangeEvent(event) {
-  document.getElementById('js-selected-file')?.classList.remove('no-active')
   createPDF(event.target.files)
+  event.target.value = ''
 }
 
 async function downloadZIP() {
@@ -345,3 +330,27 @@ onBeforeUnmount(() => {
   revokePdfUrls()
 })
 </script>
+
+<style scoped>
+.split-pdf .drop-zone:hover,
+.split-pdf .drop-zone.drag-active {
+  border-color: #999;
+  background: #f7f7f7;
+}
+
+.download-all-button {
+  display: inline-block;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 4px;
+  background: #555;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.download-all-button:hover {
+  opacity: 0.8;
+}
+</style>

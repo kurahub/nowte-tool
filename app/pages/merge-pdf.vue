@@ -1,13 +1,13 @@
 <template>
   <div>
     <main id="main" class="merge-pdf">
-      <section class="mts">
+      <section class="page-header">
         <div class="container">
           <h1 class="h1">PDF結合ツール</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
-              <p class=" tac">
+              <p class="page-description">
                 複数のPDFを1つに結合します。アップロード不要・ブラウザ内で処理します。
               </p>
             </div>
@@ -15,7 +15,7 @@
 
           <div
             id="js-dropzone"
-            class="drop-zone"
+            class="drop-zone mt20"
             :class="{ 'drag-active': isDragging }"
             @dragenter.prevent="dropzoneInEvent"
             @dragover.prevent="dragoverEvent"
@@ -32,16 +32,12 @@
               class="no-active"
             ></p>
 
-            <p class="drop-zone-text">
-              PDFファイルを選択 or ここにドラッグ&ドロップ
-              <br />
-              複数ファイルをまとめて選択できます。選択後、自動で結合してダウンロードします。
-            </p>
+            <div class="drop-zone-text"><b>ファイルをここにドラッグ&amp;ドロップ</b></div>
 
             <label
               id="js-select-file"
               for="file"
-              class="select-file"
+              class="select-file mt10"
             >
               PDFファイルを選択
 
@@ -134,7 +130,7 @@
             </p>
           </div>
 
-          <div class="mts box bg-gray">
+          <div class="tool-info-section bg-gray ptm pbm mtm">
             <p class="mt0">
               <b>特徴</b>
             </p>
@@ -147,7 +143,7 @@
             </ul>
           </div>
 
-          <div class="mts">
+          <div class="tool-info-section bg-gray pbm">
             <h2 class="h2">使い方</h2>
 
             <ol class="list mtxxs">

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <main id="main">
-      <section class="tac mtm">
+    <main id="main" class="golden-ratio">
+      <section class="page-header tac">
         <div class="container">
           <h1 class="h1">黄金比 早見表</h1>
           <p class="fwb fsl mtxxs">(1:1.618)</p>
-          <p class="">
+          <p class="page-description">
             最も美しい比と言われる「黄金比」。
             <br />計算しなくても見れるように早見表を作成しました。
           </p>
@@ -16,7 +16,7 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-6">
-              <table class="golden-ratio-table tbl mts fwb">
+              <table class="golden-ratio-table tbl mt20 fwb">
                 <tr>
                   <th class="tal">横幅 (px)</th>
                   <th class="tal">縦幅 (px)</th>
@@ -40,6 +40,13 @@
               </table>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="tool-info-section bg-gray ptm pbm mtm">
+        <div class="container">
+          <h2 class="h2">黄金比とは</h2>
+          <p class="mtxxs">黄金比は、およそ1対1.618の比率です。横幅に対応する縦幅を早見表ですぐに確認できます。</p>
         </div>
       </section>
 
