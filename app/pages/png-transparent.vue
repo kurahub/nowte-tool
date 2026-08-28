@@ -3,7 +3,8 @@
     <main id="main" class="png-transparent">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">PNGの白背景を透過</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">PNG背景透過</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
@@ -86,10 +87,10 @@
 import { ref } from 'vue'
 
 useHead({
-  title: 'PNGの白背景を透過｜無料オンライン透過ツール - 一発ツールズ',
+  title: '一発でPNG背景透過｜無料オンラインツール',
   meta: [{
     name: 'description',
-    content: 'PNG画像の白背景を透明にする無料オンラインツールです。アップロード不要。PNGを入れるだけで白背景を透過して自動ダウンロードします。'
+    content: 'PNG画像の白色・白に近い背景を透明化できる無料オンラインツールです。判定の強さを調整でき、アップロード不要で自動ダウンロードします。'
   }]
 })
 

@@ -22,6 +22,7 @@
 const tools = [
     { to: "/merge-pdf/", label: "PDF結合" },
     { to: "/split-pdf/", label: "PDF分割" },
+    { to: "/sort-pdf/", label: "PDF並び替え" },
     { to: "/pdf-to-image/", label: "PDFを画像に変換" },
     { to: "/image-to-pdf/", label: "画像をPDFに変換" },
     { to: "/compress-image/", label: "画像圧縮" },

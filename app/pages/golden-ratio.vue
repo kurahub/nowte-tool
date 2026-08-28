@@ -3,7 +3,8 @@
     <main id="main" class="golden-ratio">
       <section class="page-header tac">
         <div class="container">
-          <h1 class="h1">黄金比 早見表</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">黄金比表</h1>
           <p class="fwb fsl mtxxs">(1:1.618)</p>
           <p class="page-description">
             最も美しい比と言われる「黄金比」。
@@ -57,7 +58,8 @@
 
 <script setup>
 useHead({
-  title: '黄金比早見表'
+  title: '黄金比表',
+  meta: [{ name: 'description', content: '横幅に対応する黄金比1対1.618の縦幅をすぐ確認できる無料の黄金比早見表です。10pxから2000pxまで一覧表示します。' }]
 })
 
 /*

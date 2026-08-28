@@ -1043,7 +1043,7 @@ html.sidebar-is-open .sp-navi-toggle .label{
 ===================================*/
 
 .h1 {
-    font-size: 28px;
+    font-size: 34px;
     line-height: 1.25;
     margin: 0;
     padding: 0;
@@ -1109,11 +1109,13 @@ html.sidebar-is-open .sp-navi-toggle .label{
 ===================================*/
 
 .h1-sub {
-    font-size: 16px;
-    margin: 10px 0 0;
+    font-size: 20px;
+    margin: 0 0 6px;
     padding: 0;
     text-align: center;
-    letter-spacing: 2px;
+    color: #fd621e;
+    font-weight: 700;
+    line-height: 1;
 }
 
 .h2-sub {
@@ -1384,19 +1386,19 @@ html.sidebar-is-open .sp-navi-toggle .label{
     position: relative;
 }
 .drop-zone-text {
-    font-size: 24px;
+    font-size: 28px;
 }
 .select-file {
     display: inline-block;
-    padding: 25px 40px;
+    font-size: 23px;
+    padding: 20px 30px;
     width: 400px;
-    background-color: #1aa1ff;
+    background-color: #1f7ecf;
     border-radius: 5px;
     color: #f7f7f7;
     cursor: pointer;
     font-weight: 700;
     z-index: 1;
-    font-size: 24px;
 }
 
 .select-file input[type='file'] {
@@ -1405,7 +1407,7 @@ html.sidebar-is-open .sp-navi-toggle .label{
 
 /* Tool page shared layout */
 #main .drop-zone {
-    padding: 100px 20px;
+    padding: 70px 20px;
     border: 4px dashed #ccc;
     border-radius: 8px;
     background: #fafafa;
@@ -1472,7 +1474,7 @@ html.sidebar-is-open .sp-navi-toggle .label{
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
-    border-radius: 0;
+    border-radius: 5px;
     -webkit-appearance: none;
     transition: 0.15s ease-out, box-shadow 0.15s ease-out;
 }
@@ -1498,7 +1500,7 @@ html.sidebar-is-open .sp-navi-toggle .label{
 .btn-primary {
     color: #fff;
     border: none;
-    background-color: #928050;
+    background-color: #1f7ecf;
 }
 
 .btn-primary:hover {

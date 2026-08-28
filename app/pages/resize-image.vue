@@ -3,6 +3,7 @@
     <main id="main" class="image-resize">
       <section class="page-header">
         <div class="container">
+          <div class="h1-sub">＼　一発で！　／</div>
           <h1 class="h1">画像リサイズ</h1>
 
           <div class="row justify-content-center">
@@ -174,7 +175,8 @@ import { ref } from 'vue'
 import Compressor from 'compressorjs'
 
 useHead({
-  title: '一発でオンライン画像リサイズ JPG・PNG・GIF'
+  title: '一発で画像リサイズ｜無料オンラインツール',
+  meta: [{ name: 'description', content: 'JPG・PNG・GIF画像を指定サイズへ一括リサイズできる無料オンラインツールです。任意のpx指定に対応し、処理後に自動ダウンロードします。' }]
 })
 
 const wh = ref('1280')

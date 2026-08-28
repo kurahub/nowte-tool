@@ -3,7 +3,8 @@
     <main id="main" class="anchor-link-generator">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">ページ内リンクジェネレーター</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">ページ内リンクタグ作成</h1>
           <p class="page-description">HTML内のid属性をすべて抽出し、見出しへ移動するaタグを一括生成します。</p>
 
           <label class="input-label mt20" for="source-html">IDを抽出するHTML</label>
@@ -35,7 +36,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-useHead({ title: 'ページ内リンクジェネレーター｜IDからaタグを生成 - 一発ツールズ', meta: [{ name: 'description', content: 'HTML内のID属性を抽出してページ内リンクのaタグを一括生成できる無料オンラインツールです。' }] })
+useHead({ title: '一発でページ内リンクタグ作成｜HTMLソースコードから一括抽出無料オンラインツール', meta: [{ name: 'description', content: 'HTMLソースコード内のid属性と見出しを一括抽出し、ページ内リンク用のaタグを自動生成する無料オンラインツールです。' }] })
 
 const sourceHtml = ref('')
 const copied = ref(false)

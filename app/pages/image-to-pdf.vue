@@ -1,6 +1,7 @@
 <template>
   <div><main id="main" class="image-to-pdf"><section class="page-header"><div class="container">
-    <h1 class="h1">画像をPDFに変換</h1>
+    <div class="h1-sub">＼　一発で！　／</div>
+    <h1 class="h1">画像PDF変換</h1>
     <p class="page-description">JPG・PNGなどの画像をPDFへ変換します。<br />複数画像は選択順に1つのPDFへまとめます。</p>
     <div class="drop-zone mt20" :class="{ 'drag-active': isDragging, 'is-processing': isProcessing }" @dragenter.prevent="isDragging = true" @dragover.prevent @dragleave.prevent="leaveDropZone" @drop.prevent="onDrop">
       <div class="drop-zone-text"><b>{{ isProcessing ? 'PDFを作成しています…' : 'ファイルをここにドラッグ&ドロップ' }}</b></div>
@@ -15,7 +16,7 @@
 <script setup>
 import { ref } from 'vue'
 import { PDFDocument } from 'pdf-lib'
-useHead({ title: '画像をPDFに変換｜JPG・PNGをPDF化 - 一発ツールズ', meta: [{ name: 'description', content: 'JPG・PNGなど複数の画像を1つのPDFへ無料で変換できるオンラインツールです。画像はアップロードせずブラウザ内で処理します。' }] })
+useHead({ title: '一発で画像PDF変換｜PNG・JPG画像をPDF変換する無料オンラインツール', meta: [{ name: 'description', content: 'PNG・JPGなどの画像をPDFへ変換できる無料オンラインツールです。複数画像を1つのPDFにまとめ、アップロード不要で自動ダウンロードします。' }] })
 const margin = ref(20); const fitA4 = ref(false); const isDragging = ref(false); const isProcessing = ref(false); const message = ref(''); const hasError = ref(false)
 function onSelect(event) { createPdf(event.target?.files); if (event.target) event.target.value = '' }
 function onDrop(event) { isDragging.value = false; createPdf(event.dataTransfer?.files) }

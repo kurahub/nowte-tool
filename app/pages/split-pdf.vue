@@ -3,7 +3,8 @@
     <main id="main" class="split-pdf">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">PDFを1ページずつに分割</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">PDF分割</h1>
           <p class="page-description">
             複数ページのPDFを1ページずつのファイルに分けます。<br />
             アップロード不要。分割後のZIPを自動でダウンロードします。
@@ -124,12 +125,11 @@ import { saveAs } from 'file-saver'
 
 
 useHead({
-  title: '一発でPDFを1ページずつに分割｜無料・アップロード＆インストール不要',
+  title: '一発でPDF分割｜複数ページを1ページずつに分割する無料オンラインツール',
   meta: [
     {
       name: 'description',
-      content:
-        '複数ページのPDFを1つずつのファイルに分けます。アップロード＆インストール不要だから高速。無料で簡単誰でも使えます。'
+      content: '複数ページのPDFを1ページずつに分割できる無料オンラインツールです。アップロード不要で処理し、分割したPDFをZIPで自動ダウンロードします。'
     }
   ]
 })

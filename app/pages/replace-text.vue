@@ -1,6 +1,7 @@
 <template>
   <div><main id="main" class="replace-text"><section class="page-header"><div class="container">
-    <h1 class="h1">文字列置換｜テキストを一括置換</h1>
+    <div class="h1-sub">＼　一発で！　／</div>
+    <h1 class="h1">文字列置換</h1>
     <p class="page-description">置換前と置換後の文字列を指定して、文章内の該当箇所をまとめて置換します。</p>
     <div class="replace-settings mt20"><label>置換前<input v-model="searchText" type="text" placeholder="置換したい文字列" /></label><label>置換後<input v-model="replacementText" type="text" placeholder="置換後の文字列" /></label></div>
     <label class="input-label mt20" for="source-text">置換したいテキスト</label><textarea id="source-text" v-model="sourceText" class="tool-textarea mt10" rows="9" placeholder="ここに文章を入力"></textarea>
@@ -12,7 +13,7 @@
 </template>
 <script setup>
 import { computed, ref } from 'vue'
-useHead({ title: '文字列置換ツール｜テキストを一括置換 - 一発ツールズ', meta: [{ name: 'description', content: '文章内の指定した文字列を別の文字列へ一括置換できる無料オンラインツールです。' }] })
+useHead({ title: '一発で文字列置換｜無料オンラインツール', meta: [{ name: 'description', content: '文章内の指定した文字列を別の文字列へ一括置換できる無料オンラインツールです。置換結果と件数をリアルタイム表示し、ワンクリックでコピーできます。' }] })
 const searchText = ref(''); const replacementText = ref(''); const sourceText = ref(''); const copied = ref(false)
 const replacementCount = computed(() => searchText.value ? sourceText.value.split(searchText.value).length - 1 : 0)
 const resultText = computed(() => searchText.value ? sourceText.value.split(searchText.value).join(replacementText.value) : sourceText.value)

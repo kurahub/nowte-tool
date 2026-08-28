@@ -6,7 +6,8 @@
         >
             <section class="page-header">
                 <div class="container">
-                    <h1 class="h1">PDFを画像に変換 PNG・JPG</h1>
+                    <div class="h1-sub">＼　一発で！　／</div>
+                    <h1 class="h1">PDF画像変換 PNG・JPG</h1>
 
                     <p class="page-description">
                         PDFの各ページをPNGまたはJPG画像に変換します。
@@ -90,7 +91,10 @@
                         </label>
                     </div>
 
-                    <section v-if="resultImages.length" class="image-results mtm">
+                    <section
+                        v-if="resultImages.length"
+                        class="image-results mtm"
+                    >
                         <div class="result-heading">
                             <h2 class="h2">変換した画像</h2>
                             <button
@@ -114,7 +118,11 @@
                                 >
                                     <p class="mt0 gray tac">ページ {{ image.page }}</p>
                                     <figure class="mtxxs">
-                                        <img :src="image.url" width="100%" :alt="`PDF ${image.page}ページ目の画像`" />
+                                        <img
+                                            :src="image.url"
+                                            width="100%"
+                                            :alt="`PDF ${image.page}ページ目の画像`"
+                                        />
                                     </figure>
                                     <p class="tac mts"><i class="fa fa-download"></i> ダウンロード</p>
                                 </a>
@@ -161,12 +169,12 @@ import { onBeforeUnmount, ref } from "vue";
 import JSZip from "jszip";
 
 useHead({
-    title: "一発でPDFを画像に変換｜PNG・JPGへ無料変換 - 一発ツールズ",
+    title: "一発でPDF画像変換｜PDFをPNG・JPGに変換する無料オンラインツール",
     meta: [
         {
             name: "description",
             content:
-                "PDFの各ページをPNGまたはJPG画像に変換できる無料オンラインツールです。アップロード不要。PDFを入れると一発変換して自動ダウンロードします。",
+                "PDFの各ページをPNGまたはJPG画像に変換できる無料オンラインツールです。アップロード不要で、ページ別ダウンロードとZIP保存に対応します。",
         },
     ],
 });

@@ -25,6 +25,11 @@
                 <span>PDFから必要なページを分割</span>
               </NuxtLink>
 
+              <NuxtLink to="/sort-pdf/" class="tool-card">
+                <strong>PDF並び替え</strong>
+                <span>PDFのページを好きな順番に変更</span>
+              </NuxtLink>
+
               <NuxtLink to="/pdf-to-image/" class="tool-card">
                 <strong>PDF → PNG・JPG</strong>
                 <span>PDFの全ページを画像へ一発変換</span>

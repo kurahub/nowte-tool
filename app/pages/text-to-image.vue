@@ -3,7 +3,8 @@
     <main id="main" class="text-to-image">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">テキストを画像に変換</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">テキスト画像変換</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
@@ -217,7 +218,8 @@ import { computed, ref } from 'vue'
 import html2canvas from 'html2canvas'
 
 useHead({
-  title: '一発で文字・文章・テキスト画像変換'
+  title: '一発でテキスト変換｜無料オンラインツール',
+  meta: [{ name: 'description', content: '入力したテキストをPNG画像に変換できる無料オンラインツールです。背景色・文字色・文字サイズを設定してすぐにダウンロードできます。' }]
 })
 
 const textInput = ref('ここに画像にしたいテキストを入力')

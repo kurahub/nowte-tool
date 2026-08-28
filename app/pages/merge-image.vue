@@ -3,7 +3,8 @@
     <main id="main" class="merge-image">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">画像結合｜複数画像を一枚に連結</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">画像結合</h1>
           <p class="page-description">複数の画像を縦または横に結合します。<br />画像を入れたら一発結合・自動ダウンロード。</p>
 
           <div class="drop-zone mt20" :class="{ 'drag-active': isDragging, 'is-processing': isProcessing }" @dragenter.prevent="isDragging = true" @dragover.prevent @dragleave.prevent="leaveDropZone" @drop.prevent="onDrop">
@@ -40,7 +41,7 @@
 import { ref } from 'vue'
 import { PDFDocument } from 'pdf-lib'
 
-useHead({ title: '画像結合｜複数画像を一枚・PDFに結合 - 一発ツールズ', meta: [{ name: 'description', content: '複数画像を縦・横に結合し、PNGまたはPDFで保存できる無料オンラインツールです。余白と画像間隔をpxで指定できます。' }] })
+useHead({ title: '一発で画像結合｜無料オンラインツール', meta: [{ name: 'description', content: '複数画像を縦または横に結合できる無料オンラインツールです。画像間隔と余白を指定し、PNGまたはPDFで自動ダウンロードできます。' }] })
 
 const direction = ref('vertical')
 const outputFormat = ref('png')

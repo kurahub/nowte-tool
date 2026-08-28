@@ -1,6 +1,7 @@
 <template>
   <div><main id="main" class="japanese-check"><section class="page-header"><div class="container">
-    <h1 class="h1">日本語チェック｜文章内の日本語を確認</h1>
+    <div class="h1-sub">＼　一発で！　／</div>
+    <h1 class="h1">日本語チェック</h1>
     <p class="page-description">入力したテキストに日本語が含まれているか、その場ですぐ確認できます。</p>
     <label class="input-label mt20" for="japanese-text">チェックするテキスト</label>
     <textarea id="japanese-text" v-model="text" class="tool-textarea mt10" rows="10" placeholder="ここにテキストを入力"></textarea>
@@ -14,7 +15,7 @@
 </template>
 <script setup>
 import { computed, ref } from 'vue'
-useHead({ title: '日本語チェック｜文章内の日本語を判定 - 一発ツールズ', meta: [{ name: 'description', content: '入力した文章に日本語が含まれているかを無料で確認できるオンラインツールです。' }] })
+useHead({ title: '一発で日本語チェック｜テキスト内の日本語を確認無料オンラインツール', meta: [{ name: 'description', content: '入力したテキストに日本語が含まれているかを確認できる無料オンラインツールです。日本語文字数と2バイト文字数をリアルタイムで表示します。' }] })
 const text = ref('')
 const japaneseCharacters = computed(() => text.value.match(/[\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Han}々〆ヵヶ、。・「」『』【】〜ー]/gu) || [])
 const doubleByteCount = computed(() => Array.from(text.value).filter((character) => !/[\u0000-\u007f\uff61-\uff9f]/u.test(character)).length)

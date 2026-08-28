@@ -3,7 +3,8 @@
     <main id="main" class="webp-converter">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">WEBPをJPG・PNGに変換</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">WEBP変換 PNG・JPG</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
@@ -126,10 +127,10 @@
 import { ref } from 'vue'
 
 useHead({
-  title: 'WEBPをJPG・PNGに変換｜無料オンライン画像変換 - 一発ツールズ',
+  title: '一発でWEBP変換｜PNG・JPG対応の無料オンラインツール',
   meta: [{
     name: 'description',
-    content: 'WEBPをJPGまたはPNGに変換できる無料オンラインツールです。複数ファイル対応、アップロード不要。ファイルを入れると一発変換して自動ダウンロードします。'
+    content: 'WEBP画像をPNGまたはJPGへ変換できる無料オンラインツールです。複数ファイルに対応し、アップロード不要で変換後に自動ダウンロードします。'
   }]
 })
 

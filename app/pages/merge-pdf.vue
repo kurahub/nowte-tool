@@ -3,7 +3,8 @@
     <main id="main" class="merge-pdf">
       <section class="page-header">
         <div class="container">
-          <h1 class="h1">PDF結合ツール</h1>
+          <div class="h1-sub">＼　一発で！　／</div>
+          <h1 class="h1">PDF結合</h1>
 
           <div class="row justify-content-center">
             <div class="col-12 col-md-12">
@@ -169,8 +170,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content:
-        '複数のPDFファイルを1つに結合できる無料オンラインツールです。アップロード不要で、PDFはブラウザ内だけで処理します。'
+      content: '複数のPDFを1つに結合できる無料オンラインツールです。ファイルはアップロードせず、ブラウザ内で安全に結合して自動ダウンロードします。'
     }
   ]
 })
