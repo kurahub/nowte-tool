@@ -6,7 +6,7 @@
           <h1 class="h1">PDFを1ページずつに分割</h1>
           <p class="page-description">
             複数ページのPDFを1ページずつのファイルに分けます。<br />
-            アップロード不要。ブラウザ内ですぐに分割できます。
+            アップロード不要。分割後のZIPを自動でダウンロードします。
           </p>
         </div>
       </section>
@@ -80,7 +80,8 @@
               <h2 class="h2">特徴</h2>
               <ul class="list mtxxs">
                 <li>PDFを1ページずつのファイルに分割できます。</li>
-                <li>必要なページだけ、またはZIPでまとめてダウンロードできます。</li>
+                <li>分割完了後、すべてのページをZIPで自動ダウンロードします。</li>
+                <li>必要なページだけ個別に再ダウンロードできます。</li>
                 <li>PDFはサーバーへアップロードしません。</li>
                 <li>ブラウザ内だけで分割処理を行います。</li>
               </ul>
@@ -92,8 +93,8 @@
               <h2 class="h2">PDFを分割する方法</h2>
               <ul class="list mtxxs">
                 <li>PDFを選択、またはドラッグ＆ドロップします。</li>
-                <li>分割されたページのプレビューを確認します。</li>
-                <li>必要なページ、または「まとめてダウンロード」を選びます。</li>
+                <li>分割が完了するとZIPが自動でダウンロードされます。</li>
+                <li>画面上のプレビューから各ページを個別にダウンロードできます。</li>
               </ul>
             </div>
           </section>
@@ -192,6 +193,10 @@ async function createPDF(files) {
 
     pdfs.value = await splitPdf(sourcePdf)
     zipFlg.value = pdfs.value.length ? 1 : 0
+
+    if (pdfs.value.length) {
+      await downloadZIP()
+    }
   } catch (error) {
     console.error('[split-pdf] pdf-lib error:', error)
 
