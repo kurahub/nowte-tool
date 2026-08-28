@@ -872,6 +872,60 @@ html.sidebar-is-open .sp-navi-toggle .label{
     text-align: center;
 }
 
+/* legal pages */
+.legal-container {
+    max-width: 900px;
+}
+
+.legal-content {
+    line-height: 1.9;
+}
+
+.legal-content section + section {
+    margin-top: 36px;
+}
+
+.legal-content h2 {
+    margin: 0 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.legal-content p {
+    margin: 0;
+}
+
+.legal-content ul,
+.legal-content ol {
+    margin: 10px 0 0;
+    padding-left: 1.5em;
+}
+
+.legal-content li + li {
+    margin-top: 6px;
+}
+
+.legal-content a {
+    text-decoration: underline;
+}
+
+.legal-date {
+    margin-top: 48px !important;
+    text-align: right;
+}
+
+@media (max-width: 767px) {
+    .legal-content section + section {
+        margin-top: 28px;
+    }
+
+    .legal-content h2 {
+        font-size: 19px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     #footer .copyright {
         text-align: center;
