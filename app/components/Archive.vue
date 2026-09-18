@@ -32,6 +32,7 @@ const tools = [
     { to: "/image-to-webp/", label: "画像をWEBPに変換" },
     { to: "/jfif-to-jpg/", label: "JFIFをJPG・PNGに変換" },
     { to: "/png-transparent/", label: "PNG背景透過" },
+    { to: "/svg-to-base64/", label: "SVG Base64変換" },
     { to: "/text-to-image/", label: "テキスト画像変換" },
     { to: "/japanese-check/", label: "日本語チェック" },
     { to: "/replace-text/", label: "文字列置換" },

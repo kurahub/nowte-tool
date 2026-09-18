@@ -80,6 +80,11 @@
                 <strong>画像結合</strong>
                 <span>複数画像を縦・横に一枚へ結合</span>
               </NuxtLink>
+
+              <NuxtLink to="/svg-to-base64/" class="tool-card">
+                <strong>SVG Base64変換</strong>
+                <span>SVGをCSSのbackground-imageへ変換</span>
+              </NuxtLink>
             </div>
           </section>
 

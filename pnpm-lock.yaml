@@ -32,6 +32,9 @@ importers:
       pdfjs-dist:
         specifier: ^6.2.108
         version: 6.2.108
+      svgo:
+        specifier: ^4.1.0
+        version: 4.1.0
       vue:
         specifier: ^3.5.41
         version: 3.5.41
