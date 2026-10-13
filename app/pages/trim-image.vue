@@ -28,6 +28,7 @@
           <div class="trim-settings mt20">
             <label>出力形式
               <select v-model="outputFormat" @change="reprocessFiles">
+                <option value="original">元の形式</option>
                 <option value="png">PNG</option>
                 <option value="jpeg">JPG</option>
               </select>
@@ -66,7 +67,7 @@
             <ul class="list mtxxs">
               <li>画像の四隅から背景色を判定し、周囲の余白を削除します。</li>
               <li>白以外の単色背景や透明な余白にも対応します。</li>
-              <li>複数のPNG・JPG・WEBP画像をまとめて処理できます。</li>
+              <li>複数のPNG・JPG・WEBP画像をまとめて処理し、自動でダウンロードします。</li>
               <li>画像はサーバーへアップロードしません。</li>
             </ul>
           </div>
@@ -75,7 +76,7 @@
             <ol class="list mtxxs">
               <li>画像を選択、またはドラッグ＆ドロップします。</li>
               <li>必要なら「判定の許容値」と「残す余白」を調整します。</li>
-              <li>結果を確認し、画像ごとにダウンロードします。</li>
+              <li>処理が終わると、元と同じファイル名で自動ダウンロードされます。</li>
             </ol>
           </div>
         </div>
@@ -98,7 +99,7 @@ useHead({
 
 const tolerance = ref(10)
 const padding = ref(0)
-const outputFormat = ref('png')
+const outputFormat = ref('original')
 const isDragging = ref(false)
 const isProcessing = ref(false)
 const errorMessage = ref('')
@@ -127,14 +128,14 @@ async function processFiles(fileList) {
     return
   }
   sourceFiles.value = files
-  await createResults(files)
+  await createResults(files, true)
 }
 
 async function reprocessFiles() {
-  if (sourceFiles.value.length && !isProcessing.value) await createResults(sourceFiles.value)
+  if (sourceFiles.value.length && !isProcessing.value) await createResults(sourceFiles.value, false)
 }
 
-async function createResults(files) {
+async function createResults(files, shouldDownload) {
   isProcessing.value = true
   errorMessage.value = ''
   clearResults()
@@ -142,6 +143,12 @@ async function createResults(files) {
     const nextResults = []
     for (const [index, file] of files.entries()) nextResults.push(await trimFile(file, index))
     results.value = nextResults
+    if (shouldDownload) {
+      for (const result of nextResults) {
+        downloadResult(result)
+        await wait(200)
+      }
+    }
   } catch (error) {
     console.error('[trim-image]', error)
     clearResults()
@@ -176,14 +183,15 @@ async function trimFile(file, index) {
   output.height = height
   const outputContext = output.getContext('2d')
   if (!outputContext) throw new Error('画像を生成できませんでした。')
-  if (outputFormat.value === 'jpeg') {
+  const format = outputFormat.value === 'original' ? getOriginalFormat(file) : outputFormat.value
+  if (format === 'jpeg') {
     outputContext.fillStyle = '#ffffff'
     outputContext.fillRect(0, 0, width, height)
   }
   outputContext.drawImage(source, left, top, width, height, 0, 0, width, height)
-  const mimeType = outputFormat.value === 'jpeg' ? 'image/jpeg' : 'image/png'
+  const mimeType = format === 'jpeg' ? 'image/jpeg' : format === 'webp' ? 'image/webp' : 'image/png'
   const blob = await canvasToBlob(output, mimeType, 0.92)
-  const extension = outputFormat.value === 'jpeg' ? 'jpg' : 'png'
+  const extension = format === 'jpeg' ? getJpegExtension(file) : format
   const baseName = file.name.replace(/\.[^.]+$/, '')
   const removed = width !== source.width || height !== source.height
 
@@ -191,13 +199,32 @@ async function trimFile(file, index) {
     id: `${file.name}-${file.lastModified}-${index}`,
     name: file.name,
     url: URL.createObjectURL(blob),
-    downloadName: `${baseName}_trimmed.${extension}`,
+    downloadName: outputFormat.value === 'original' ? file.name : `${baseName}.${extension}`,
     originalWidth: source.width,
     originalHeight: source.height,
     width,
     height,
     message: removed ? `上下左右から余白を削除しました` : '削除できる余白は見つかりませんでした'
   }
+}
+
+function getOriginalFormat(file) {
+  if (file.type === 'image/jpeg' || /\.jpe?g$/i.test(file.name)) return 'jpeg'
+  if (file.type === 'image/webp' || /\.webp$/i.test(file.name)) return 'webp'
+  return 'png'
+}
+
+function getJpegExtension(file) {
+  return outputFormat.value === 'original' && /\.jpeg$/i.test(file.name) ? 'jpeg' : 'jpg'
+}
+
+function downloadResult(result) {
+  const link = document.createElement('a')
+  link.href = result.url
+  link.download = result.downloadName
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
 }
 
 function getBackgroundColor(data, width, height) {
@@ -253,6 +280,8 @@ function canvasToBlob(canvas, type, quality) {
 function normalize(value, min, max) {
   return Math.min(max, Math.max(min, Math.round(Number(value) || 0)))
 }
+
+const wait = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds))
 
 function clearResults() {
   results.value.forEach((result) => URL.revokeObjectURL(result.url))
