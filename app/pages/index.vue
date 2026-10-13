@@ -76,6 +76,11 @@
                 <span>PNG画像の白背景を透明に変換</span>
               </NuxtLink>
 
+              <NuxtLink to="/trim-image/" class="tool-card">
+                <strong>画像の余白を削除</strong>
+                <span>画像の周囲にある余白を自動トリミング</span>
+              </NuxtLink>
+
               <NuxtLink to="/merge-image/" class="tool-card">
                 <strong>画像結合</strong>
                 <span>複数画像を縦・横に一枚へ結合</span>
