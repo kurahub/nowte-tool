@@ -36,6 +36,7 @@ const tools = [
     { to: "/text-to-image/", label: "テキスト画像変換" },
     { to: "/japanese-check/", label: "日本語チェック" },
     { to: "/replace-text/", label: "文字列置換" },
+    { to: "/text-diff/", label: "テキスト差分比較" },
     { to: "/anchor-link-generator/", label: "ページ内リンク生成" },
     { to: "/golden-ratio/", label: "黄金比" },
 ];

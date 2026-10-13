@@ -112,6 +112,11 @@
                 <span>文章内の文字列をまとめて置換</span>
               </NuxtLink>
 
+              <NuxtLink to="/text-diff/" class="tool-card">
+                <strong>テキスト差分比較</strong>
+                <span>2つの文章の違いを1行ずつ表示</span>
+              </NuxtLink>
+
               <NuxtLink to="/anchor-link-generator/" class="tool-card">
                 <strong>ページ内リンク生成</strong>
                 <span>HTMLのIDからaタグを一括生成</span>
