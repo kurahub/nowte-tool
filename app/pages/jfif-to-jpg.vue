@@ -7,7 +7,7 @@
             <section class="page-header">
                 <div class="container">
                     <div class="h1-sub">＼　一発で！　／</div>
-                    <h1 class="h1">JFIF変換 JPG・PNG</h1>
+                    <h1 class="h1">JFIFをJPGに変換</h1>
 
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-12">
@@ -167,7 +167,7 @@
 import { ref } from "vue";
 
 useHead({
-    title: "一発でJFIF変換｜JPG・PNGの無料オンラインツール",
+    title: "一発でJFIFをJPGに変換｜無料オンラインツール",
     meta: [
         {
             name: "description",
